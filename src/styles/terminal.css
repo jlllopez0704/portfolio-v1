@@ -1,0 +1,237 @@
+.terminal-box {
+  background: rgba(3, 8, 5, 0.94);
+  border: 1px solid rgba(92, 107, 89, 0.9);
+  border-radius: 6px;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #394339;
+  color: #c5d0c2;
+  font-size: 13px;
+}
+
+.terminal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.terminal-body {
+  padding: 18px;
+}
+
+.projects-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.project-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.project-preview-shell {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(57, 255, 20, 0.38);
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(12, 36, 20, 0.94), rgba(1, 5, 3, 0.98));
+}
+
+.project-preview-toolbar {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(57, 255, 20, 0.24);
+  color: #9fffae;
+  font-size: 11px;
+}
+
+.window-dots {
+  display: flex;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.window-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #39ff14;
+  box-shadow: 0 0 14px rgba(57, 255, 20, 0.55);
+}
+
+.window-dots span:nth-child(2) {
+  background: #b6ff79;
+}
+
+.window-dots span:nth-child(3) {
+  background: #d7ffe0;
+}
+
+.preview-path {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.82;
+}
+
+.project-preview-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-feature-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(57, 255, 20, 0.22);
+  border-radius: 6px;
+  background: rgba(5, 18, 9, 0.78);
+}
+
+.project-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #9fffae;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #39ff14;
+  box-shadow: 0 0 16px rgba(57, 255, 20, 0.72);
+}
+
+.project-feature-copy h2 {
+  margin-bottom: 0;
+  color: #f3fff5;
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.project-feature-copy p {
+  margin-bottom: 0;
+  color: #bdd8c2;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.project-stack,
+.project-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-stack span,
+.project-metrics span {
+  border: 1px solid rgba(57, 255, 20, 0.32);
+  color: #cffff5;
+  background: rgba(57, 255, 20, 0.08);
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.project-metrics span {
+  border-color: rgba(215, 255, 224, 0.22);
+  color: #9fffae;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.project-card {
+  display: flex;
+  min-height: 118px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid rgba(57, 255, 20, 0.26);
+  border-radius: 6px;
+  background: rgba(5, 12, 7, 0.86);
+  color: #d7ffe0;
+  cursor: pointer;
+  font: inherit;
+  padding: 14px;
+  text-align: left;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  border-color: rgba(57, 255, 20, 0.68);
+  background: rgba(57, 255, 20, 0.09);
+}
+
+.project-card span {
+  display: grid;
+  gap: 8px;
+}
+
+.project-card strong {
+  color: #f3fff5;
+  font-size: 13px;
+}
+
+.project-card small {
+  color: #9eb7a3;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.project-card em {
+  flex: 0 0 auto;
+  color: #39ff14;
+  font-size: 10px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1180px) {
+  .project-feature {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .terminal-body {
+    padding: 14px;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: 0;
+  }
+}

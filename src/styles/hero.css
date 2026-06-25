@@ -1,0 +1,7 @@
+.hero-logo {
+  color: #868686;
+  font-size: 14px;
+  text-shadow:
+    2px 2px 0 #445544,
+    4px 4px 0 #223322;
+}
