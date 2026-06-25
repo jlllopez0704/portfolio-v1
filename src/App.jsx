@@ -13,7 +13,7 @@ function App() {
       {/* <Navbar /> */}
 
       <main className="app-main">
-        <div className="flex flex-col items-center justify-center text-center min-h-screen">
+        <div className="flex flex-col items-center justify-center text-center">
           <Hero />
         </div>
         <CommandBar />
