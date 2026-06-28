@@ -1,3 +1,5 @@
+import resumeUrl from "../../data/John_Lenn_Lopez_Resume.pdf";
+
 export default function CommandBar() {
   const items = ["ABOUT", "SKILLS", "EXPERIENCE", "PROJECTS", "CONTACT"];
 
@@ -9,9 +11,13 @@ export default function CommandBar() {
         </button>
       ))}
 
-      <button className="resume-btn">
+      <a
+        href={resumeUrl}
+        download="John_Lenn_Lopez_Resume.pdf"
+        className="resume-btn inline-flex items-center justify-center no-underline"
+      >
         &gt;_ DOWNLOAD RESUME
-      </button>
+      </a>
     </div>
   );
 }
