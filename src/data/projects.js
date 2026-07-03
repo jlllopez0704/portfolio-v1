@@ -1,113 +1,189 @@
 export const projects = [
   {
     id: 1,
-    title: "SSO MIMAROPA Portal",
+    title: "SSO MIMAROPA Portal v3",
     status: "Live system",
-    stack: ["Laravel(PHP)", "React", "Keycloak"],
-    image: new URL("../assets/images/projects/dswd/portalv2/reservation-page.png", import.meta.url).href,
+    stack: ["Laravel(PHP)", "React", "Keycloak", "MySQl 8.4", "LDAP/AD"],
+    image: new URL(
+      "../assets/images/projects/dswd/sso-portal-v3/sso-login.png",
+      import.meta.url,
+    ).href,
     description:
       "Centralized authentication and app launcher for DSWD MIMAROPA services.",
     metrics: ["SSO", "RBAC", "Microservices"],
     components: null,
-    company: "DSWD MIMAROPA"
+    company: "DSWD MIMAROPA",
   },
   {
     id: 2,
     title: "FACED IS",
     status: "Production",
-    stack: ["Laravel(PHP)", "MySQL", "Bootstrap"],
-    image: new URL("../assets/images/projects/dswd/faced-is/family-overview.png", import.meta.url).href,
+    stack: ["Laravel(PHP)","Vue3", "TypeScript", "MySQL 8.4", "TailwindCSS" , "REST API"],
+    image: new URL(
+      "../assets/images/projects/dswd/faced-is/family-overview.png",
+      import.meta.url,
+    ).href,
     description: "Information system for case tracking and regional reporting.",
     metrics: ["Reports", "Workflow", "Audit"],
     components: null,
-    company: "DSWD MIMAROPA"
+    company: "DSWD MIMAROPA",
   },
   {
     id: 3,
     title: "PMIS",
     status: "Internal tool",
-    stack: ["Laravel(PHP)", "Node.js", "MySQL"],
-    image: new URL("../assets/images/projects/dswd/pmis/performance-dashboard.png", import.meta.url).href,
-    description: "Project monitoring dashboard for milestones, files, and updates.",
+    stack: ["Laravel(PHP)", "Vue 3","tailwindCSS", "MySQL", "REST API"],
+    image: new URL(
+      "../assets/images/projects/dswd/pmis/performance-dashboard.png",
+      import.meta.url,
+    ).href,
+    description:
+      "Project monitoring dashboard for milestones, files, and updates.",
     metrics: ["Tracking", "Dashboards", "Exports"],
     components: null,
-    company: "DSWD MIMAROPA"
+    company: "DSWD MIMAROPA",
   },
   {
     id: 4,
     title: "DTRMIS",
     status: "Production",
-    stack: ["Laravel(PHP)", "MySQL", "Bootstrap"],
-    image: new URL("../assets/images/projects/dswd/dtrmis/attendances.png", import.meta.url).href,
+    stack: ["Laravel(PHP)", "MySQL", "tailwindCSS" , "REST API"],
+    image: new URL(
+      "../assets/images/projects/dswd/dtrmis/attendances.png",
+      import.meta.url,
+    ).href,
     description: "Daily Time Record Monitoring Information System.",
     metrics: ["Attendance", "DTR", "Monitoring"],
     components: null,
-    company: "DSWD MIMAROPA"
+    company: "DSWD MIMAROPA",
+  },
+  {
+    id: 11,
+    title: "Vehicle Reservation",
+    status: "Live system",
+    stack: ["CodeIgniter(PHP)", "MySQL", "Bootstrap"],
+    image: new URL(
+      "../assets/images/projects/dswd/vehicle-reservation/reservation-page.png",
+      import.meta.url,
+    ).href,
+    description:
+      "Centralized vehicle reservation system for requesting and scheduling office travels.",
+    metrics: ["Reservations", "Scheduling", "Tracking"],
+    components: null,
+    company: "DSWD MIMAROPA",
   },
   {
     id: 5,
     title: "PC Inventory",
     status: "Internal tool",
-    stack: ["React(js)", "Node.js", "MySQL"],
-    image: new URL("../assets/images/projects/dswd/pc-inventory/Info-collected.png", import.meta.url).href,
+    stack: ["Laravel(PHP)", "MySQL", "Bootstrap", "Windows Scripting"],
+    image: new URL(
+      "../assets/images/projects/dswd/pc-inventory/Info-collected.png",
+      import.meta.url,
+    ).href,
     description: "Personal computer inventory and tracking system.",
     metrics: ["Inventory", "Hardware", "Tracking"],
     components: null,
-    company: "DSWD MIMAROPA"
+    company: "DSWD MIMAROPA",
   },
   {
     id: 6,
     title: "Queueing IS",
     status: "Live system",
     stack: ["Laravel(PHP)", "React", "MySQL"],
-    image: new URL("../assets/images/projects/dswd/queueing-is/queue_display.png", import.meta.url).href,
+    image: new URL(
+      "../assets/images/projects/dswd/queuing-is/queue_display.png",
+      import.meta.url,
+    ).href,
     description: "Queueing Information System for customer service management.",
     metrics: ["Queueing", "Real-time", "Display"],
     components: null,
-    company: "DSWD MIMAROPA"
+    company: "DSWD MIMAROPA",
   },
   {
     id: 7,
     title: "TEMIS",
     status: "Production",
     stack: ["Laravel(PHP)", "MySQL", "Bootstrap"],
-    image: new URL("../assets/images/projects/dswd/temis/tev_monitoring.png", import.meta.url).href,
+    image: new URL(
+      "../assets/images/projects/dswd/temis/tev_monitoring.png",
+      import.meta.url,
+    ).href,
     description: "Travel Expense Monitoring Information System.",
     metrics: ["Expenses", "Travel", "Monitoring"],
     components: null,
-    company: "DSWD MIMAROPA"
+    company: "DSWD MIMAROPA",
   },
   {
     id: 8,
     title: "Tilapia Aquaculture Water Parameter Monitoring",
     status: "Live System",
-    stack: ["Vue3", "Websocket", "C++"],
-    image: new URL("../assets/images/projects/freelance/aquaculture.jpg", import.meta.url).href,
-    description: "To monitor the water quality",
+    stack: ["Vue3", "Websocket", "C++", "REST API"],
+    image: new URL(
+      "../assets/images/projects/freelance/aquaculture.jpeg",
+      import.meta.url,
+    ).href,
+    description: "To monitor the water quality for tilapia aquaculture using sensors and microcontrollers",
     metrics: ["Monitoring", "Real-time"],
-    components: ["Esp8266", "Arduino"],
-    company: "Freelance"
+    components: [
+      "Esp8266",
+      "Arduino",
+      "4 channel Relay",
+      "DS18B20 Digital Thermometer",
+      "SEN0237 Dissolved Oxygen Sensor",
+      "SEN0189 Turbidity Sensor",
+      "SEN0244 Arduino compatible Total Dissolved Solids (TDS) Sensor",
+      "SEN0161 Analog pH Meter",
+      "MQ-137 Gas Sensor"
+    ],
+    company: "Freelance",
   },
   {
     id: 9,
-    title: "Aquarium Led Controls",
-    status: "Live",
-    stack: ["React Native", "MQTT", "C++"],
-    image: new URL("../assets/images/projects/personal/aquarium-led.jpg", import.meta.url).href,
-    description: "Control My Aquarium LED Manually and automatically using ESP8266 microcontroller",
-    metrics: ["Automation"],
-    components: ["Esp8266", "4 channel Relay", "12v LEDs"],
-    company: "Personal"
+    title: "Odor Detector",
+    status: "Production",
+    stack: ["C++"],
+    image: new URL(
+      "../assets/images/projects/freelance/odor-detector.jpeg",
+      import.meta.url,
+    ).href,
+    description: "To monitor air quality and detect if odor is safe or not using gas sensors",
+    metrics: ["Monitoring", "Real-time"],
+    components: [
+      "Arduino",
+      "MQ-137 Gas Sensor",
+      "MQ-6 Gas Sensor",
+      "Oled Screen",
+    ],
+    company: "Freelance",
   },
   {
     id: 10,
+    title: "Aquarium Led Controls",
+    status: "Live",
+    stack: ["React Native", "MQTT", "C++", "REST API"],
+    image: new URL(
+      "../assets/images/projects/personal/aqua-led-controls.png",
+      import.meta.url,
+    ).href,
+    description:
+      "Control My Aquarium LED Manually and automatically using ESP8266 microcontroller",
+    metrics: ["Automation"],
+    components: ["Esp8266", "4 channel Relay", "12v LEDs"],
+    company: "Personal",
+  },
+  {
+    id: 11,
     title: "Monthly Budget Planner",
     status: "Development",
     stack: ["React Native(JS)", "Sqlite", "nodejs"],
-    image: new URL("../assets/images/projects/personal/budget-planner.jpg", import.meta.url).href,
-    description: "Control My Aquarium LED Manually and automatically using ESP8266 microcontroller",
+    image: new URL(
+      "../assets/images/projects/personal/budget-planner.jpg",
+      import.meta.url,
+    ).href,
+    description:
+      "My monthly budget planner to track my expenses and income using React Native and Sqlite",
     metrics: ["Automation"],
-    company: "Personal"
-  }
+    company: "Personal",
+  },
 ];
-

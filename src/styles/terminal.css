@@ -164,6 +164,22 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+.project-components {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-components span {
+  border: 1px solid rgba(57, 190, 255, 0.32);
+  color: #cfedff;
+  background: rgba(57, 190, 255, 0.08);
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 11px;
+  line-height: 1;
+}
+
 .project-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
