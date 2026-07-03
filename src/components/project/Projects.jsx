@@ -26,8 +26,8 @@ export default function Projects() {
 
   // Get active project details
   const activeProject = useMemo(() => {
-    return projects.find((p) => p.id === selectedProjectId) || projects[0];
-  }, [selectedProjectId]);
+    return currentProjects.find((p) => p.id === selectedProjectId) || currentProjects[0] || projects[0];
+  }, [currentProjects, selectedProjectId]);
 
   // Update selected project when changing company
   const handleCompanyChange = (company) => {
@@ -123,6 +123,15 @@ export default function Projects() {
                   {project.title}
                 </strong>
                 <small className="line-clamp-2">{project.description}</small>
+                {project.components && project.components.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {project.components.map((comp) => (
+                      <span key={comp} className="text-[9px] font-mono px-1.5 py-0.5 rounded border border-[rgba(57,190,255,0.32)] bg-[rgba(57,190,255,0.08)] text-[#cfedff] leading-none">
+                        {comp}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </span>
               <em>{project.status}</em>
             </button>
