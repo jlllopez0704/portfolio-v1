@@ -1,14 +1,38 @@
-import { useState } from 'react'
-import './App.css'
-import Hero from './components/Hero'
+import Navbar from "./components/common/Navbar";
+import CommandBar from "./components/common/CommandBar";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Skills from "./components/sections/Skills";
+import Experience from "./components/sections/Experience";
+import Projects from "./components/project/Projects";
+import Contact from "./components/sections/Contact";
 
 function App() {
   return (
-    // bg-black locks the screen black, h-screen/w-screen takes up the entire display
-    <div className="w-screen h-screen overflow-hidden bg-black flex flex-col justify-center items-center m-0 p-4">
-      <Hero />
+    <div className="app">
+      {/* <Navbar /> */}
+
+      <main className="app-main">
+        <div className="flex flex-col items-center justify-center text-center">
+          <Hero />
+        </div>
+        <CommandBar />
+
+        <div className="dashboard-grid">
+          <div className="left-column">
+            <About />
+            <Skills />
+            <Experience />
+          </div>
+
+          <div className="right-column">
+            <Projects />
+            <Contact />
+          </div>
+        </div>
+      </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
