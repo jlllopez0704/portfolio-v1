@@ -1,13 +1,20 @@
 .hero-logo {
   color: #97af97;
-  font-size: clamp(4px, 0.85vw, 13px);
+  font-size: clamp(4px, 0.85vw, 10px);
   line-height: 1.15;
   text-shadow: 1px 1px 0 #445544;
   white-space: pre;
   text-align: center;
   overflow: visible;
 }
-
+.hero-subtitle {
+  margin-top: 1rem;
+  color: #97af97;
+  font-size: clamp(10px, 2vw, 13px);
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
 @media (min-width: 768px) {
   .hero-logo {
     font-size: clamp(8px, 0.9vw, 14px);
@@ -15,4 +22,8 @@
       2px 2px 0 #445544,
       4px 4px 0 #223322;
   }
+  .hero-subtitle {
+    font-size: clamp(16px, 1.2vw, 22px);
+  }
 }
+
