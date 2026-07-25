@@ -1,8 +1,9 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import TerminalBox from "../common/TerminalBox";
+import TerminalTyping from "../common/TerminalTyping";
 import { projects } from "../../data/projects";
 
-export default function Projects() {
+export default function Projects({ onComplete }) {
   // Group projects by company
   const grouped = useMemo(() => {
     return projects.reduce((acc, project) => {
@@ -17,17 +18,29 @@ export default function Projects() {
 
   const companies = Object.keys(grouped);
   const [activeCompany, setActiveCompany] = useState(companies[0] || "");
-  
+
   // Get projects for current company
   const currentProjects = grouped[activeCompany] || [];
-  
+
   // Track selected project
-  const [selectedProjectId, setSelectedProjectId] = useState(currentProjects[0]?.id || projects[0]?.id);
+  const [selectedProjectId, setSelectedProjectId] = useState(
+    currentProjects[0]?.id || projects[0]?.id,
+  );
+
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   // Get active project details
   const activeProject = useMemo(() => {
-    return currentProjects.find((p) => p.id === selectedProjectId) || currentProjects[0] || projects[0];
+    return (
+      currentProjects.find((p) => p.id === selectedProjectId) ||
+      currentProjects[0] ||
+      projects[0]
+    );
   }, [currentProjects, selectedProjectId]);
+
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [activeProject?.image]);
 
   // Update selected project when changing company
   const handleCompanyChange = (company) => {
@@ -70,43 +83,74 @@ export default function Projects() {
                 <span></span>
               </div>
               <span className="preview-path font-mono text-[10px]">
-                ~/projects/{activeProject.company.toLowerCase().replaceAll(" ", "-")}/{activeProject.title.toLowerCase().replaceAll(" ", "-")}
+                ~/projects/
+                {activeProject.company.toLowerCase().replaceAll(" ", "-")}/
+                {activeProject.title.toLowerCase().replaceAll(" ", "-")}
               </span>
             </div>
 
             <img
               src={activeProject.image}
               alt={`${activeProject.title} UI preview`}
-              className="project-preview-image"
+              className={`project-preview-image ${imageLoaded ? "loaded" : ""}`}
+              onLoad={() => setImageLoaded(true)}
             />
           </div>
 
           <div className="project-feature-copy">
-            <div className="project-kicker">
-              <span className="status-dot"></span>
-              {activeProject.status}
-            </div>
+            <TerminalTyping
+              key={activeProject.id}
+              items={[
+                activeProject.status,
+                activeProject.title,
+                activeProject.description,
+              ]}
+              speed={300}
+              onComplete={onComplete}
+              renderItem={(line, i) => {
+                switch (i) {
+                  case 0:
+                    return (
+                      <div key={i} className="project-kicker">
+                        <span className="status-dot"></span>
+                        {line}
+                      </div>
+                    );
 
-            <h2 className="text-xl font-bold tracking-tight">{activeProject.title}</h2>
-            <p className="text-sm leading-relaxed">{activeProject.description}</p>
+                  case 1:
+                    return (
+                      <h2 key={i} className="text-xl font-bold tracking-tight">
+                        {line}
+                      </h2>
+                    );
+
+                  case 2:
+                    return (
+                      <p key={i} className="text-sm leading-relaxed">
+                        {line}
+                      </p>
+                    );
+
+                  default:
+                    return null;
+                }
+              }}
+            />
 
             <div className="project-stack">
               {activeProject.stack.map((tech) => (
-                <span key={tech} className="font-mono">{tech}</span>
+                <span key={tech} className="font-mono">
+                  {tech}
+                </span>
               ))}
             </div>
-
-            {activeProject.metrics && activeProject.metrics.length > 0 && (
-              <div className="project-metrics">
-                {activeProject.metrics.map((metric) => (
-                  <span key={metric}>{metric}</span>
-                ))}
-              </div>
-            )}
           </div>
         </article>
 
-        <div className="project-list" aria-label="Other projects in this category">
+        <div
+          className="project-list"
+          aria-label="Other projects in this category"
+        >
           {currentProjects.map((project) => (
             <button
               key={project.id}
@@ -119,14 +163,21 @@ export default function Projects() {
               type="button"
             >
               <span>
-                <strong className={selectedProjectId === project.id ? "text-[#39ff14]" : ""}>
+                <strong
+                  className={
+                    selectedProjectId === project.id ? "text-[#39ff14]" : ""
+                  }
+                >
                   {project.title}
                 </strong>
                 <small className="line-clamp-2">{project.description}</small>
                 {project.components && project.components.length > 0 && (
                   <div className="flex flex-wrap gap-1 mt-2">
                     {project.components.map((comp) => (
-                      <span key={comp} className="text-[9px] font-mono px-1.5 py-0.5 rounded border border-[rgba(57,190,255,0.32)] bg-[rgba(57,190,255,0.08)] text-[#cfedff] leading-none">
+                      <span
+                        key={comp}
+                        className="text-[9px] font-mono px-1.5 py-0.5 rounded border border-[rgba(57,190,255,0.32)] bg-[rgba(57,190,255,0.08)] text-[#cfedff] leading-none"
+                      >
                         {comp}
                       </span>
                     ))}

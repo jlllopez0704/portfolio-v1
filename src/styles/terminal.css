@@ -94,6 +94,12 @@
   aspect-ratio: 16 / 11;
   object-fit: cover;
   object-position: top center;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.project-preview-image.loaded {
+  opacity: 1;
 }
 
 .project-feature-copy {
