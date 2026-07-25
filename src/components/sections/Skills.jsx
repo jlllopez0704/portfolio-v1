@@ -1,4 +1,6 @@
+import { useMemo } from "react";
 import TerminalBox from "../common/TerminalBox";
+import TerminalTyping from "../common/TerminalTyping";
 import {
   SiReact,
   SiVuedotjs,
@@ -15,12 +17,14 @@ import {
   SiGit,
   SiArduino,
   SiRaspberrypi,
-  SiAndroid
+  SiAndroid,
+  SiPhp,
+  SiSqlite,
 } from "react-icons/si";
 import { Bot, Server } from "lucide-react";
 
-export default function Skills() {
-  const skillCategories = [
+export default function Skills({ onComplete }) {
+  const skillCategories = useMemo(() => [
     {
       title: "Frontend",
       skills: [
@@ -40,6 +44,7 @@ export default function Skills() {
     {
       title: "Backend",
       skills: [
+        { name: "PHP", icon: SiPhp, color: "text-[#4479A1]" },
         { name: "Laravel", icon: SiLaravel, color: "text-[#FF2D20]" },
         { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
         { name: "CodeIgniter", icon: SiCodeigniter, color: "text-[#EE4326]" },
@@ -51,6 +56,7 @@ export default function Skills() {
       skills: [
         { name: "MySQL", icon: SiMysql, color: "text-[#4479A1]" },
         { name: "Redis", icon: SiRedis, color: "text-[#DC382D]" },
+        { name: "Sqlite", icon: SiSqlite, color: "text-[#4479A1]" },
       ],
     },
     {
@@ -89,32 +95,39 @@ export default function Skills() {
         { name: "Ollama", icon: Bot, color: "text-neutral-300" },
       ],
     },
-  ];
+  ]);
 
   return (
     <TerminalBox title="skills">
       <div className="grid grid-cols-2 gap-6 text-sm">
-        {skillCategories.map((category) => (
-          <div key={category.title}>
-            <h3 className="font-bold mb-3 text-neutral-200">
-              {category.title}
-            </h3>
-            <ul className="space-y-2">
-              {category.skills.map((skill) => {
-                const Icon = skill.icon;
-                return (
-                  <li
-                    key={skill.name}
-                    className="flex items-center gap-2 text-neutral-400 hover:text-neutral-200 transition-colors duration-200"
-                  >
-                    <Icon className={`w-4 h-4 ${skill.color}`} />
-                    <span>{skill.name}</span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+        <TerminalTyping
+          items={skillCategories}
+          speed={200}
+          onComplete={onComplete}
+          renderItem={(category) => (
+            <div key={category.title}>
+              <h3 className="font-bold mb-3 text-neutral-200">
+                {category.title}
+              </h3>
+
+              <ul className="space-y-2">
+                {category.skills.map((skill) => {
+                  const Icon = skill.icon;
+
+                  return (
+                    <li
+                      key={skill.name}
+                      className="flex items-center gap-2 text-neutral-400"
+                    >
+                      <Icon className={`w-4 h-4 ${skill.color}`} />
+                      <span>{skill.name}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+        />
       </div>
     </TerminalBox>
   );

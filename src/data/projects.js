@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "SSO MIMAROPA Portal v3",
-    status: "Live system",
+    status: "Development",
     stack: ["Laravel(PHP)", "React", "Keycloak", "MySQl 8.4", "LDAP/AD"],
     image: new URL(
       "../assets/images/projects/dswd/sso-portal-v3/sso-login.png",
@@ -17,7 +17,7 @@ export const projects = [
   {
     id: 2,
     title: "FACED IS",
-    status: "Production",
+    status: "Development",
     stack: ["Laravel(PHP)","Vue3", "TypeScript", "MySQL 8.4", "TailwindCSS" , "REST API"],
     image: new URL(
       "../assets/images/projects/dswd/faced-is/family-overview.png",
@@ -31,15 +31,15 @@ export const projects = [
   {
     id: 3,
     title: "PMIS",
-    status: "Internal tool",
+    status: "Production",
     stack: ["Laravel(PHP)", "Vue 3","tailwindCSS", "MySQL", "REST API"],
     image: new URL(
       "../assets/images/projects/dswd/pmis/performance-dashboard.png",
       import.meta.url,
     ).href,
     description:
-      "Project monitoring dashboard for milestones, files, and updates.",
-    metrics: ["Tracking", "Dashboards", "Exports"],
+      "Performance Monitoring dashboard for milestones, files, and updates.",
+    metrics: ["Tracking Status", "Dashboards", "Exports"],
     components: null,
     company: "DSWD MIMAROPA",
   },
@@ -60,7 +60,7 @@ export const projects = [
   {
     id: 11,
     title: "Vehicle Reservation",
-    status: "Live system",
+    status: "Production",
     stack: ["CodeIgniter(PHP)", "MySQL", "Bootstrap"],
     image: new URL(
       "../assets/images/projects/dswd/vehicle-reservation/reservation-page.png",
@@ -89,7 +89,7 @@ export const projects = [
   {
     id: 6,
     title: "Queueing IS",
-    status: "Live system",
+    status: "Production",
     stack: ["Laravel(PHP)", "React", "MySQL"],
     image: new URL(
       "../assets/images/projects/dswd/queuing-is/queue_display.png",
