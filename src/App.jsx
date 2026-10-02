@@ -1,6 +1,6 @@
-import { useState, useCallback } from "react";
-import Navbar from "./components/common/Navbar";
+import { useCallback, useState } from "react";
 import CommandBar from "./components/common/CommandBar";
+import Modal from "./components/common/Modal";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
@@ -10,32 +10,29 @@ import Contact from "./components/sections/Contact";
 
 function App() {
   const [step, setStep] = useState(0);
-  
-  const handleHeroComplete = useCallback(() => {
-    setStep(1); // triggers About
-  }, []);
-
-  const handleAboutComplete = useCallback(() => {
-    setStep(2); // triggers Experience
-  }, []);
-
-  const handleExperienceComplete = useCallback(() => {
-    setStep(3); // triggers Skills
-  }, []);
-
-  const handleSkillsComplete = useCallback(() => {
-    setStep(4); // triggers Projects
-  }, []);
+  const [activeSection, setActiveSection] = useState(null);
+  const closeSection = useCallback(() => setActiveSection(null), []);
+  const handleHeroComplete = useCallback(() => setStep(1), []);
+  const handleAboutComplete = useCallback(() => setStep(2), []);
+  const handleExperienceComplete = useCallback(() => setStep(3), []);
+  const handleSkillsComplete = useCallback(() => setStep(4), []);
+  const handleProjectsComplete = useCallback(() => setStep(5), []);
+  const sections = {
+    ABOUT: About,
+    SKILLS: Skills,
+    EXPERIENCE: Experience,
+    PROJECTS: Projects,
+    CONTACT: Contact,
+  };
+  const ActiveSection = activeSection ? sections[activeSection] : null;
 
   return (
     <div className="app">
-      {/* <Navbar /> */}
-
       <main className="app-main">
         <div className="flex flex-col items-center justify-center text-center">
           <Hero onComplete={handleHeroComplete} />
         </div>
-        <CommandBar />
+        <CommandBar activeSection={activeSection} onSelect={setActiveSection} />
 
         <div className="dashboard-grid">
           <div className="left-column">
@@ -45,11 +42,16 @@ function App() {
           </div>
 
           <div className="right-column">
-            {step >= 4 && <Projects onComplete={() => setStep(5)} />}
+            {step >= 4 && <Projects onComplete={handleProjectsComplete} />}
             {step >= 5 && <Contact />}
           </div>
         </div>
       </main>
+      {ActiveSection && (
+        <Modal title={activeSection} onClose={closeSection}>
+          <ActiveSection />
+        </Modal>
+      )}
     </div>
   );
 }

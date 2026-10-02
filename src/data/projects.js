@@ -186,4 +186,17 @@ export const projects = [
     metrics: ["Automation"],
     company: "Personal",
   },
+  {
+    id: 12,
+    title: "Personal Micro Loan",
+    status: "Live",
+    stack: [],
+    image: new URL(
+      "../assets/images/projects/personal/personal-micro-loan.png",
+      import.meta.url,
+    ).href,
+    description:
+      "Personal lending records with payment tracking, due date timelines, and automated SMS reminders.",
+    company: "Personal",
+  },
 ];

@@ -69,6 +69,65 @@ body {
   color: #f3fff5;
 }
 
+.command-btn {
+  border-radius: 6px;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.command-btn:hover,
+.command-btn.active {
+  border-color: #39ff14;
+  box-shadow: 0 0 16px rgba(57, 255, 20, 0.18);
+}
+
+.command-btn:focus-visible,
+.section-modal-close:focus-visible {
+  outline: 2px solid #b7ffc2;
+  outline-offset: 3px;
+}
+
+.section-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.section-modal {
+  position: relative;
+  width: min(900px, 100%);
+  max-height: min(86vh, 900px);
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+.section-modal-close {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #d7ffe0;
+  font: inherit;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.section-modal-close:hover {
+  background: rgba(57, 255, 20, 0.14);
+}
+
 .resume-btn {
   margin-left: auto;
   border-color: rgba(181, 255, 190, 0.62);
@@ -114,5 +173,13 @@ ul {
 
   .resume-btn {
     grid-column: 1 / -1;
+  }
+
+  .section-modal-backdrop {
+    padding: 12px;
+  }
+
+  .section-modal {
+    max-height: 92vh;
   }
 }

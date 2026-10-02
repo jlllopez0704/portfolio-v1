@@ -1,5 +1,6 @@
 import TerminalBox from "../common/TerminalBox";
 import TerminalTyping from "../common/TerminalTyping";
+import portrait from "../../assets/images/self-pixel-art.png";
 
 export default function About({ onComplete }) {
   const lines = [
@@ -12,13 +13,16 @@ export default function About({ onComplete }) {
 
   return (
     <TerminalBox title="About">
-      <div className="space-y-2 text-sm">
-        <TerminalTyping
-          items={lines}
-          speed={150}
-          onComplete={onComplete}
-          renderItem={(line, i) => <p key={i}>{line}</p>}
-        />
+      <div className="about-content">
+        <img className="about-portrait" src={portrait} alt="Pixel art portrait of John Lenn L. Lopez" />
+        <div className="space-y-2 text-sm">
+          <TerminalTyping
+            items={lines}
+            speed={150}
+            onComplete={onComplete}
+            renderItem={(line, i) => <p key={i}>{line}</p>}
+          />
+        </div>
       </div>
     </TerminalBox>
   );
