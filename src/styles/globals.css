@@ -21,5 +21,5 @@ body,
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Pixelify Sans", monospace;
 }
