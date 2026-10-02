@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-mono: "Pixelify Sans", monospace;
+}
+
 html,
 body,
 #root {
@@ -12,7 +16,7 @@ body {
     radial-gradient(circle at top left, rgba(57, 255, 20, 0.09), transparent 28rem),
     #000;
   color: #d1d5db;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Pixelify Sans", monospace;
 }
 
 .app {

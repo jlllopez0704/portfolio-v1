@@ -6,7 +6,7 @@
   letter-spacing: 1px;
   line-height: 1.4;
 
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Pixelify Sans", monospace;
   white-space: nowrap;
 }
 
@@ -23,6 +23,7 @@
 
 .hero-logo {
   color: #acdfac;
+  font-family: monospace;
   font-size: clamp(4px, 0.85vw, 10px);
   line-height: 1.15;
   text-shadow: 1px 1px 0 #445544;
